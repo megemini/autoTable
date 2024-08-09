@@ -12,8 +12,9 @@ def update_stats_data(doc_table: Table, update_people: bool = True):
     for table_row in doc_table.children:
         # 对已删除任务特判, 但任然会记录状态位
         if isinstance(table_row.children[0].children[0], Strikethrough):
-            assert isinstance(table_row.children[0].children[0].children[0].content[0], str)
-            stats: StatusType = StatusType(table_row.children[0].children[0].children[0].content[0])
+            # assert isinstance(table_row.children[0].children[0].children[0].content[0], str)
+            # stats: StatusType = StatusType(table_row.children[0].children[0].children[0].content[0])
+            continue
         else:
             assert isinstance(table_row.children[0].children[0].content, str)
             assert not table_row.children[0].children[0].content.startswith("~")
